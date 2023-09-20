@@ -1,0 +1,6 @@
+node_modules
+
+#npm install --save-exact body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
+# cấu hình .babelrc
+# thay đổi lệnh start :     "start": "nodemon --exec babel-node ./src/server.js"
+#config view Engine để chạy ejs
