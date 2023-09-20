@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>  
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/pageCreate" class="active">Create User</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+      <form action="/create-user" method="POST">
+        <fieldset>
+         <legend>Create Users:</legend>
+         <label>First name:</label>
+         <input type="text" name="firstName"><br><br>
+         <label>Last name:</label>
+         <input type="text"  name="lastName"><br><br>
+         <label>Email:</label>
+         <input type="email" name="email"><br><br>
+         <label >Address:</label>
+         <input type="text" name="address"><br><br>
+         <input type="submit" value="Submit">
+        </fieldset>
+       </form>
+       
+</body>
+</html>

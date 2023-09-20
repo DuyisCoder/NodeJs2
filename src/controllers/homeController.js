@@ -30,6 +30,18 @@ const detailUser = async (req, res) => {
     const [results, fields] = await connection.query(`Select * from Users where id= ?`, [userId]);
     res.send('hi');
 }
+const createPage = async (req, res) => {
+    res.render('createUser.ejs');
+}
+const createUser = async (req, res) => {
+    let { firstName, lastName, email, address } = req.body;
+
+    const [results, field] = await connection.query(
+        ' INSERT INTO `Users` ( `firstName`, `lastName`, `email`, `adress`) VALUES(?,?,?,?) '
+        , [firstName, lastName, email, address]);
+
+    res.redirect('/');
+}
 module.exports = {
-    homePage, aboutPage, detailUser
+    homePage, aboutPage, detailUser, createPage, createUser
 }
