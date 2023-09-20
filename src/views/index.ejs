@@ -6,8 +6,38 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>  
-    <h1>Xin chào các bạn</h1>
-    <img src="/image/dalat.JPG" alt="" width="500px "height="500px">
-    
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+      <h1 style="margin: 20px 20px;">List User:</h1>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Lastname</th>
+          <th>Firstname</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+       
+            <% for(var i =0 ;i <dataUsers.length ;i++) {%>
+                <tr>
+                <td><%=dataUsers[i].id %></td>
+                <td><%=dataUsers[i].lastName %></td>
+                <td><%=dataUsers[i].firstName %></td>
+                <td><%=dataUsers[i].email %></td>
+                <td><%=dataUsers[i].address %></td>
+                <td style="margin: 0 auto;">
+                    <a href="/detail/user/<%=dataUsers[i].id %>">Detail</button>
+                    <button>Remove</button>
+                    <button>Edit</button>
+                </td>
+            </tr>
+            <%}%>
+  
+      </table>
 </body>
 </html>
