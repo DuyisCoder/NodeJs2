@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>  
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/pageCreate">Create User</a>
+        <a href="/upload" class="active" >Upload File</a>
+        <a href="#about">About</a>
+      </div>
+     <div class="upload" >
+        <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+            <div>
+                <h3>Upload single file:</h3>
+                <div>
+                    <span>Upload your profile picture:</span>
+                    <input type="file" name="profile_pic" />
+                </div>
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+     </div>
+</body>
+</html>

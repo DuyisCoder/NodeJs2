@@ -47,3 +47,22 @@ tr {
     height: 50px;
 
 }
+
+legend {
+    margin: 0px 20px;
+    font-size: 24px;
+}
+
+.form-1 {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    border: 1px solid #ccc;
+}

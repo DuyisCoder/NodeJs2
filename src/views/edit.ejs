@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJs</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>  
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/pageCreate">Create User</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+    <h1 style="margin: 20px 20px;">Edit Page</h1>
+      <form class="form-1" action="/edit-user" method="POST">
+          <label hidden>id name:</label>
+          <input hidden type="text" name="userId" value="<%=user.id %>"><br><br>
+        <fieldset>
+         <legend>Edit Users:</legend>
+         <label>Last name:</label>
+         <label>First name:</label>
+         <input type="text" name="firstName" value="<%=user.firstName %>"><br><br>
+         <label>Last name:</label>
+         <input type="text"  name="lastName" value="<%=user.lastName %>"><br><br>
+         <label>Email:</label>
+         <input type="email" name="email" value="<%=user.email %>"> <br><br>
+         <label >Address:</label>
+         <input type="text" name="address" value="<%=user.address %>"><br><br>
+         <input type="submit" value="Submit">
+        </fieldset>
+       </form>
+       
+</body>
+</html>

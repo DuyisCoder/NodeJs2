@@ -4,6 +4,7 @@ import configViewEngine from './config/configViewEngine';
 import initRoutes from './routes/webRoute'
 import connection from './config/database'
 import bodyParser from 'body-parser'
+import initAPI from "./routes/api";
 require('dotenv').config()
 const app = express();
 
@@ -18,7 +19,8 @@ configViewEngine(app);
 
 // config routes
 initRoutes(app)
-
+//config api
+initAPI(app);
 
 app.listen(port, () => {
     console.log("server is running!");
