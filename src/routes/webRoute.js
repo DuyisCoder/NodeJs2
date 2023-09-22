@@ -23,6 +23,7 @@ const imageFilter = function (req, file, cb) {
     cb(null, true);
 };
 let upload = multer({ storage: storage, fileFilter: imageFilter });
+let upload1 = multer({ storage: storage, fileFilter: imageFilter }).array('multiple_images', 4);
 const initRoutes = (app) => {
     router.get('/', homeController.homePage);
     router.get('/about', homeController.aboutPage);
@@ -35,6 +36,21 @@ const initRoutes = (app) => {
 
     router.get('/upload', homeController.uploadFilePage);
     router.post('/upload-profile-pic', upload.single('profile_pic'), homeController.handleUploadFile);
+    router.post('/upload-multiple-images', (req, res, next) => {
+        upload1(req, res, (err) => {
+            if (err instanceof multer.MulterError && err.code === "LIMIT_UNEXPECTED_FILE") {
+                // handle multer file limit error here
+                res.send('LIMIT_UNEXPECTED_FILE:Vui lòng không tải quá nhiều ảnh cho phép!')
+            } else if (err) {
+                res.send(err)
+            }
+
+            else {
+                // make sure to call next() if all was well
+                next();
+            }
+        })
+    }, homeController.handleUploadMultipleFile)
     return app.use('/', router);
 }
 

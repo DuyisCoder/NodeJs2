@@ -7,7 +7,7 @@
 </head>
 <body>  
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="/">Home</a>
         <a href="/pageCreate">Create User</a>
         <a href="/upload">Upload File</a>
         <a href="#about">About</a>
@@ -31,15 +31,22 @@
                 <td><%=dataUsers[i].email %></td>
                 <td><%=dataUsers[i].address %></td>
                 <td style="margin: 0 auto;">
-                    <a href="/detail/user/<%=dataUsers[i].id %>">Detail</button>
-                    <form action="/delete-user" method="POST">
-                        <input type="text" name="userId" hidden value="<%=dataUsers[i].id %>">
-                        <button>Remove</button>
-                    </form>
-                    <form action="/edit-user/<%=dataUsers[i].id %>" method="get">
-
-                        <button type="submit">Edit</button>
-                    </form>
+                    <div class="action">
+                        <!-- <div class="action1">
+                            <a href="/detail/user/<%=dataUsers[i].id %>">Detail</button>
+                        </div> -->
+                        <div class="action1">
+                            <form action="/delete-user" method="POST">
+                                <input type="text" name="userId" hidden value="<%=dataUsers[i].id %>">
+                                <button>Remove</button>
+                            </form>
+                        </div>
+                        <div class="action1">
+                            <form action="/edit-user/<%=dataUsers[i].id %>" method="get">
+                                <button type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <%}%>

@@ -1,5 +1,6 @@
 import connection from "../config/database";
 import multer from "multer";
+import path from 'path'
 const homePage = async (req, res) => {
     let data = [];
     // connection.query(
@@ -71,6 +72,7 @@ const uploadFilePage = (req, res) => {
     res.render('uploadFile.ejs');
 }
 const upload = multer().single('profile_pic');
+
 const handleUploadFile = async (req, res) => {
     upload(req, res, function (err) {
         if (req.fileValidationError) {
@@ -83,8 +85,31 @@ const handleUploadFile = async (req, res) => {
         res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
     });
 }
+const uploadMultipleFile = multer().array('multiple_images');
+const handleUploadMultipleFile = async (req, res) => {
+
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+
+    let result = "You have uploaded these images: <hr />";
+    const files = req.files;
+    console.log(files);
+    let index, len;
+
+    // Loop through all the uploaded images and display them on frontend
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `<img src="/image/${files[index].filename}" width="300" style="margin-right: 20px;">`;
+    }
+    result += '<hr/><a href="./">Upload more images</a>';
+    res.send(result);
+
+}
 module.exports = {
     homePage, aboutPage, detailUser, createPage,
     createUser, deleteUser, editPage, editUser,
-    uploadFilePage, handleUploadFile
+    uploadFilePage, handleUploadFile, handleUploadMultipleFile
 }

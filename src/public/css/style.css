@@ -59,10 +59,42 @@ legend {
     margin-top: 150px;
 }
 
-.upload {
+.upload-1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+}
+
+.upload {
+    display: flex;
+    height: 200px;
+    width: 1000px;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
     border: 1px solid #ccc;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action a {
+    text-decoration: none;
+    list-style: none;
+}
+
+.action1 form button {
+    padding: 5px 5px;
+
+    cursor: pointer;
+
+
+}
+
+.action1 form button :hover {
+    background-color: #999;
 }
